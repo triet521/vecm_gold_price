@@ -1,4 +1,5 @@
 Gold Price Forecasting using VECM (Vector Error Correction Model)
+
 This project aims to forecast the price of gold using a Vector Error Correction Model (VECM), based on historical data and several macroeconomic variables, such as the USD/VND exchange rate, CPI, and China’s gold reserve.
 
 The model uses Johansen cointegration test to check for long-term relationships between the variables and then builds a VECM to forecast future gold prices. The final forecasts are based on quarterly data, and the results are visualized for better understanding.
@@ -39,6 +40,11 @@ Stationarity was validated using:
 ADF (Augmented Dickey-Fuller) Test
 
 KPSS (Kwiatkowski–Phillips–Schmidt–Shin) Test
+
+Lag Selection (lag.py)
+To determine the optimal lag length for the VECM model, we used the lag.py script, which applies standard information criteria (such as AIC, BIC, and HQIC) on the differenced log-transformed variables (dlog_*).
+
+Based on the criteria, lag = 1 was selected as the optimal lag order. This value was then used as --lag 1 in the main pipeline.py forecasting script.
 
 Forecasting and Visualization
 After running the pipeline, the forecasted gold prices will be saved to vecm_forecast.csv and vecm_forecast.xlsx. Additionally, a plot will be generated comparing the actual and forecasted gold prices.
